@@ -3,15 +3,26 @@
 import { useChat } from '@/hooks/useChat'
 import { MessageList } from './MessageList'
 import { ChatInput } from './ChatInput'
+import { BotType } from '@/services/flowise'
 
-export function ChatWindow() {
-  const { messages, isLoading, error, send } = useChat()
+interface ChatWindowProps {
+  bot?: BotType
+  title?: string
+  subtitle?: string
+}
+
+export function ChatWindow({
+  bot = 'insecure',
+  title = 'Assistente Nath Confecções',
+  subtitle = 'Tire suas dúvidas sobre nossos produtos',
+}: ChatWindowProps) {
+  const { messages, isLoading, error, send } = useChat(bot)
 
   return (
     <div className="flex flex-col h-[600px] max-w-2xl mx-auto border border-gray-200 rounded-2xl shadow-lg overflow-hidden bg-white">
       <div className="bg-red-600 text-white px-6 py-4">
-        <h2 className="font-semibold text-lg">Assistente Nath Confecções</h2>
-        <p className="text-red-100 text-sm">Tire suas dúvidas sobre nossos produtos</p>
+        <h2 className="font-semibold text-lg">{title}</h2>
+        <p className="text-red-100 text-sm">{subtitle}</p>
       </div>
 
       <MessageList messages={messages} isLoading={isLoading} />

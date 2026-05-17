@@ -4,7 +4,11 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
 
   const flowiseUrl = process.env.FLOWISE_URL
-  const chatflowId = process.env.FLOWISE_CHATFLOW_ID
+  const bot = req.nextUrl.searchParams.get('bot')
+  const chatflowId =
+    bot === 'secure'
+      ? process.env.FLOWISE_CHATFLOW_ID_SECURE
+      : process.env.FLOWISE_CHATFLOW_ID
 
   if (!flowiseUrl || !chatflowId) {
     return NextResponse.json(

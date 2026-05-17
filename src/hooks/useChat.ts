@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react'
 import { Message } from '@/types/chat'
-import { sendMessage } from '@/services/flowise'
+import { sendMessage, BotType } from '@/services/flowise'
 
-export function useChat() {
+export function useChat(bot: BotType = 'insecure') {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -26,14 +26,14 @@ export function useChat() {
     setIsLoading(true)
 
     try {
-      const reply = await sendMessage(text)
+      const reply = await sendMessage(text, bot)
       addMessage('assistant', reply)
     } catch {
       setError('Não foi possível conectar ao assistente. Tente novamente.')
     } finally {
       setIsLoading(false)
     }
-  }, [isLoading, addMessage])
+  }, [isLoading, addMessage, bot])
 
   const clearMessages = useCallback(() => {
     setMessages([])

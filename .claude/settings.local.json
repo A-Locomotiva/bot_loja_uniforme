@@ -7,7 +7,9 @@
       "Bash(node_modules/.bin/tsc --noEmit)",
       "Bash(echo \"EXIT:$?\")",
       "Bash(echo \"TSC EXIT:$?\")",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\PC\\\\Desktop\\\\nath-confeccoes\" -Recurse -Directory)",
+      "Bash(Select-Object -First 30 FullName)"
     ]
   }
 }

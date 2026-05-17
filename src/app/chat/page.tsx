@@ -1,4 +1,4 @@
-import { ChatWindow } from '@/components/chat/ChatWindow'
+import { ChatTabs } from '@/components/chat/ChatTabs'
 
 export const metadata = {
   title: 'Assistente Virtual — Nath Confecções',
@@ -13,7 +13,7 @@ export default function ChatPage() {
           <h1 className="text-3xl font-bold text-gray-900">Assistente Virtual</h1>
           <p className="text-gray-500 mt-2">Tire suas dúvidas sobre produtos, tamanhos e pedidos</p>
         </div>
-        <ChatWindow />
+        <ChatTabs />
       </div>
     </main>
   )
