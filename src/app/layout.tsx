@@ -14,6 +14,9 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: 'Nath Confecções',
   description: 'Uniformes escolares e profissionais com personalização em bordados e estampas',
+  icons: {
+    icon: 'https://solutudo-cdn.s3-sa-east-1.amazonaws.com/prod/adv_ads/58dbb642-9bdc-40ce-b01f-2b1bac1f1da6/5faed016-4018-48fd-9da3-1719ac1e0b25.png',
+  },
 }
 
 export default function RootLayout({
